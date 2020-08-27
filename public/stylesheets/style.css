@@ -7156,6 +7156,9 @@ a.text-dark:hover, a.text-dark:focus {
 body {
   margin-bottom: 60px; }
 
+body > .container {
+  padding-top: 60px; }
+
 .footer {
   position: absolute;
   bottom: 0;
