@@ -1,5 +1,51 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Overview
+  div.leftColumn.widgetCol.col-md-4.pl-0
+    table.table
+      thead.thead-light
+        tr
+          th(colspan='2') Bank accounts
+      tbody
+        tr
+          td.col-md-9 ScotiaBank
+          td $200
+      
+    table.table
+      thead.thead-light
+        tr
+          th(colspan='2') Cash
+      tbody
+        tr
+          td.col-md-9 Tips
+          td $300
+
+    table.table
+      thead.thead-light
+        tr
+          th(colspan='2') Credit Cards
+      tbody
+        tr
+          td.col-md-9 BMO
+          td $-100
+
+    table.table
+      thead.thead-light
+        tr
+          th(colspan='2') Loans
+      tbody
+        tr
+          td.col-md-9 Student Loan
+          td $-5000
+
+    table.table
+      thead.thead-light
+        tr
+          th(colspan='2') Investments
+      tbody
+        tr
+          td.col-md-9 TFSA Tangerine
+          td $10000
+          
+        
