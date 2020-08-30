@@ -15,7 +15,7 @@ var bankAccountSchema = new Schema({
        type: Number,
        required: [true, 'Balance is required.']
    }
-}
+})
 
 var bankAccount = mongoose.model('User', userSchema);
 
