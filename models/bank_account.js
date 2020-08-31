@@ -9,14 +9,13 @@ var bankAccountSchema = new Schema({
    type: {
        type: String,
        required: [true, 'Account type is required.']
-   }
-   ,
+   },
    balance: {
        type: Number,
        required: [true, 'Balance is required.']
    }
 })
 
-var bankAccount = mongoose.model('User', userSchema);
+var BankAccount = mongoose.model('BankAccount', bankAccountSchema);
 
-module.exports = bankAccount;
+module.exports = BankAccount;

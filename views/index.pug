@@ -2,7 +2,8 @@ extends layout
 
 block content
   h1.mb-4 Overview
-  div.card.col-md-4.mb-5
+  div.card.col-md-4.mb-5.card-body
+    h5.card-title Accounts
     table.table.mt-3
       thead.thead-light
         tr
@@ -11,7 +12,7 @@ block content
         tr
           td.col-md-9 ScotiaBank
           td $200
-      
+    
     table.table
       thead.thead-light
         tr
@@ -43,9 +44,11 @@ block content
       thead.thead-light
         tr
           th(colspan='2') Investments
-      tbody
-        tr
-          td.col-md-9 TFSA Tangerine
-          td $10000
-          
+      //tbody
+        each bankAccount in bankAccounts
+          tr
+            td= bankAccount.name
+            td= bankAccount.balance
+
+    button.btn.btn-primary(href="/manage_accounts").mb-3 Manage accounts
         
