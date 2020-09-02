@@ -2,16 +2,25 @@ extends layout
 
 block content
   h1.mb-4 Overview
-  div.card.col-md-4.mb-5.card-body
-    h5.card-title Accounts
-    table.table.mt-3
+  .card.col-md-4.mb-5.card-body
+    h5.card-title.mb-4 Accounts
+    table.table
       thead.thead-light
         tr
-          th(colspan='2') Bank accounts
+          th(colspan='2') Checking accounts
       tbody
         tr
           td.col-md-9 ScotiaBank
           td $200
+
+    table.table
+      thead.thead-light
+        tr
+          th(colspan='2') Savings accounts
+      tbody
+        tr
+          td.col-md-9 ScotiaBank
+          td $2000
     
     table.table
       thead.thead-light
@@ -43,12 +52,13 @@ block content
     table.table
       thead.thead-light
         tr
-          th(colspan='2') Investments
+          th(colspan='2') Investment Accounts
       //tbody
-        each bankAccount in bankAccounts
+        each account in accounts
           tr
-            td= bankAccount.name
-            td= bankAccount.balance
+            td= account.name
+            td= account.balance
 
     a.btn.btn-outline-primary.mb-3(href="/manage_accounts") Manage accounts
+
         

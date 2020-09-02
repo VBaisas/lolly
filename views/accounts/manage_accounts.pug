@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+  h1.mb-4 Manage Your Accounts
+  .card.mb-5.card-body
+    h5.card-title.mb-3 Add an Account
+    form
+    .row
+      .col
+        label(for='accountTypeInput') Account Type
+        select#exampleFormControlSelect1.form-control
+          option Checking Account
+          option Savings Account
+          option Cash
+          option Credit Card
+          option Loan
+          option Investment Account     
+      .col
+        label(for='accountDescriptionInput') Description
+        input.form-control(type='text' placeholder='Enter brief account description')
+      .col
+        label(for='accountBalanceInput') Balance
+        input.form-control(type='text' placeholder='$')
+
+
+
