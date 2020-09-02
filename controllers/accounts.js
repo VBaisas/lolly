@@ -5,13 +5,13 @@ exports.accountsInputForm = function(req, res) {
     res.render('accounts/manage_accounts', { account: {}, errors: [] });
 };
 
-/*exports.create = function(req, res) {
-    var name = req.body.name;
+exports.create = function(req, res) {
     var type = req.body.type;
+    var description = req.body.description;
     var balance = req.body.balance;
 
     var newAccount = new Account({
-      name: name,
+      description: description,
       type: type,
       balance: balance
     });
@@ -25,4 +25,4 @@ exports.accountsInputForm = function(req, res) {
       }
 
     });
-};*/
+};
