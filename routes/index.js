@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var BankAccount = require('../models/bank_account');
+var Account = require('../models/account');
 
 router.get('/', function(req, res, next) {
-  BankAccount.find(function (err, bankAccounts) {
+  Account.find(function (err, accounts) {
       if (err) console.log(err)
 
-      res.render('index', { bankAccounts: bankAccounts, title: 'Lolly' });
+      res.render('index', { accounts: accounts, title: 'Lolly' });
   });
 });
 

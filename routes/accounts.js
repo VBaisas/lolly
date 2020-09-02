@@ -1,5 +1,5 @@
 var express = require('express');
-var accountController = require('../controllers/bank_accounts');
+var accountController = require('../controllers/accounts');
 var router = express.Router();
 
 router 

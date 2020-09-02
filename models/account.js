@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var bankAccountSchema = new Schema({
+var AccountSchema = new Schema({
    name: {
        type: String,
        required: [true, 'Account name is required.'],
@@ -16,6 +16,6 @@ var bankAccountSchema = new Schema({
    }
 })
 
-var BankAccount = mongoose.model('BankAccount', bankAccountSchema);
+var Account = mongoose.model('Account', AccountSchema);
 
-module.exports = BankAccount;
+module.exports = Account;
