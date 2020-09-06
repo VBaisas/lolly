@@ -4,11 +4,11 @@ block content
   h1.mb-4 Manage Your Accounts
   .card.mb-5.card-body
     h5.card-title.mb-3 Add New Account
-    form
+    form(method="POST")
       .form-row
         .form-group.col-md-4
           label(for='type') Account Type
-          select#exampleFormControlSelect1.form-control
+          select.form-control#type(name='type')
             option Checking Account
             option Savings Account
             option Cash
@@ -17,10 +17,10 @@ block content
             option Investment Account
         .form-group.col-md-4
           label(for='description') Description
-          input.form-control(type='text' placeholder='Enter brief account description')
+          input.form-control#description(name='description' type='text' placeholder='Enter brief account description')
         .form-group.col-md-4
           label(for='balance') Balance
-          input.form-control(type='text' placeholder='$')
+          input.form-control#balance(name='balance' type='text' placeholder='$')
       button.btn.btn-outline-primary(type='submit') Submit
 
   
