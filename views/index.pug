@@ -4,60 +4,72 @@ block content
   h1.mb-4 Overview
   .card.col-md-4.mb-5.card-body
     h5.card-title.mb-4 Accounts
+    
     table.table
       thead.thead-light
         tr
-          th(colspan='2') Checking accounts
+          th(colspan='2') Checking Accounts
       tbody
-        tr
-          td.col-md-9 ScotiaBank
-          td $200
+        each account in accounts
+          if account.type === 'Checking Account'
+            tr
+              td.col-md-9= account.description
+              td= account.balance
 
     table.table
       thead.thead-light
         tr
-          th(colspan='2') Savings accounts
+          th(colspan='2') Savings Accounts
       tbody
-        tr
-          td.col-md-9 ScotiaBank
-          td $2000
-    
+        each account in accounts
+          if account.type === 'Savings Account'
+            tr
+              td.col-md-9= account.description
+              td= account.balance
+
     table.table
       thead.thead-light
         tr
           th(colspan='2') Cash
       tbody
-        tr
-          td.col-md-9 Tips
-          td $300
+        each account in accounts
+          if account.type === 'Cash'
+            tr
+              td.col-md-9= account.description
+              td= account.balance
 
     table.table
       thead.thead-light
         tr
           th(colspan='2') Credit Cards
       tbody
-        tr
-          td.col-md-9 BMO
-          td $-100
+        each account in accounts
+          if account.type === 'Credit Card'
+            tr
+              td.col-md-9= account.description
+              td= account.balance
 
     table.table
       thead.thead-light
         tr
           th(colspan='2') Loans
       tbody
-        tr
-          td.col-md-9 Student Loan
-          td $-5000
+        each account in accounts
+          if account.type === 'Loan'
+            tr
+              td.col-md-9= account.description
+              td= account.balance
 
     table.table
       thead.thead-light
         tr
           th(colspan='2') Investment Accounts
-      //tbody
+      tbody
         each account in accounts
-          tr
-            td= account.name
-            td= account.balance
+          if account.type === 'Investment Account'
+            tr
+              td.col-md-9= account.description
+              td= account.balance
 
     a.btn.btn-outline-primary.mb-3(href="/manage_accounts") Manage accounts
 
