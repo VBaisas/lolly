@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var accountSchema = new Schema({
+const accountSchema = new Schema({
    type: {
        type: String,
        required: [true, 'Account type is required.'],
@@ -16,6 +16,6 @@ var accountSchema = new Schema({
    }
 });
 
-var Account = mongoose.model('Account', accountSchema);
+const Accounts = mongoose.model('Accounts', accountSchema);
 
-module.exports = Account;
+module.exports = Accounts;
