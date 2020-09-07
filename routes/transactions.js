@@ -3,7 +3,7 @@ var transactionController = require('../controllers/transactions.js');
 var router = express.Router();
 
 router 
-  .route('/transactions')
+  .route('/transactions/expenses')
   .get(transactionController.transactionsInputForm)
   .post(transactionController.create)
 

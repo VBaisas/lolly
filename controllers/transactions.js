@@ -2,7 +2,7 @@ var express = require('express');
 var Transaction = require('../models/transaction');
 
 exports.transactionsInputForm = function(req, res) {
-    res.render('transactions/index', { transaction: {}, errors: [] });
+    res.render('transactions/expenses', { transaction: {}, errors: [] });
 };
 
 exports.create = function(req, res) {
