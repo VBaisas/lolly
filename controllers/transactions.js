@@ -27,7 +27,7 @@ exports.create = function(req, res) {
           res.render('/', { transaction: newTransaction, errors: err.errors });
       } else {
           res.redirect('transactions');
-          console.log('Account saved successfully!');
+          console.log('Transaction saved successfully!');
       }
 
     });
