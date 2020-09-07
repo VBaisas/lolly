@@ -7,20 +7,23 @@ const transactionSchema = new Schema({
         ref: 'Account'
     },*/
     category: {
-       type: String,
-       required: [true, 'Category is required.'],
+      type: String,
+      required: [true, 'Category is required.'],
     },
     date: {
-       type: Date,
-       required: [true, 'Transaction date is required.']
+      type: Date,
+      required: [true, 'Transaction date is required.']
     },
     amount: {
-       type: Number,
-       required: [true, 'Transaction amount is required.']
+      type: Number,
+      required: [true, 'Transaction amount is required.']
     },
     description: {
-        type: String
-     }
+      type: String
+     },
+    type: {
+      type: String
+   }
 });
 
 const Transaction = mongoose.model('Transaction', transactionSchema);
