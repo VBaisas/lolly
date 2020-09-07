@@ -5,24 +5,28 @@ exports.transactionsInputForm = function(req, res) {
     res.render('transactions/index', { transaction: {}, errors: [] });
 };
 
-/*exports.create = function(req, res) {
-    var type = req.body.type;
+exports.create = function(req, res) {
+    //var account = req.body.account;
+    var category = req.body.category;
+    var date = req.body.date;
+    var amount = req.body.amount;
     var description = req.body.description;
-    var balance = req.body.balance;
 
-    var newAccount = new Account({
-      description: description,
-      type: type,
-      balance: balance
+    var newTransaction = new Transaction({
+      //account: account,
+      category: category,
+      date: date,
+      amount: amount,
+      description: description
     });
 
-    newAccount.save(function(err) {
+    newTransaction.save(function(err) {
       if (err) {
-          res.render('accounts/manage_accounts', { account: newAccount, errors: err.errors });
+          res.render('/', { transaction: newTransaction, errors: err.errors });
       } else {
-          res.redirect('/');
+          res.redirect('transactions');
           console.log('Account saved successfully!');
       }
 
     });
-};*/
+};
