@@ -5,6 +5,6 @@ var router = express.Router();
 router 
   .route('/transactions')
   .get(transactionController.transactionsInputForm)
-  //.post(accountController.create)
+  .post(transactionController.create)
 
 module.exports = router;
