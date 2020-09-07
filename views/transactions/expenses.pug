@@ -4,7 +4,7 @@ block content
     h1.mb-4 
     .row
       .list-group.col-md-3.mb-5
-        a.list-group-item.list-group-item-action.active(href='/transactions/expenses', style="background-color: #bbbbbb;") Expenses
+        a.list-group-item.list-group-item-action.active(href='/transactions/expenses', style="background-color: #57b5b2") Expenses
         a.list-group-item.list-group-item-action(href='#') Income
         a.list-group-item.list-group-item-action(href='#') Transfers
     
@@ -13,18 +13,38 @@ block content
         form(method="POST")
           .form-row
             .form-group.col-md-4
+                label(for='type') Type
+                select.form-control#type(name='type' disabled)
+                  option Expense
+            .form-group.col-md-4
                 label(for='account') Account
-                input.form-control#account(name='account' type='text' placeholder='Enter the account')                    
+                input.form-control#account(name='account' type='text' placeholder='Enter the account') 
+            .form-group.col-md-4
+                label(for='date') Date
+                input.form-control#date(name='date' type='date')
+          .form-row
+            .form-group.col-md-4
+                label(for='amount') Amount
+                input.form-control#amount(name='amount' type='number' placeholder='Enter the amount') 
             .form-group.col-md-4
                 label(for='category') Category
-                input.form-control#category(name='category' type='text' placeholder='$')
+                select.form-control#category(name='category')
+                  option Bills &amp; Utilities
+                  option Business
+                  option Education
+                  option Entertainment
+                  option Fees &amp; Charges
+                  option Food &amp; Dining
+                  option Gifts &amp; Donations
+                  option Health &amp; Fitness
+                  option Household 
+                  option Investments
+                  option Kids
+                  option Shopping
+                  option Taxes
+                  option Travel
+                  option Miscellaneous                      
             .form-group.col-md-4
-                label(for='account') Account
-                select.form-control#account(name='account')
-                    option Checking Account
-                    option Savings Account
-                    option Cash
-                    option Credit Card
-                    option Loan
-                    option Investment Account    
+                label(for='description') Description
+                input.form-control#description(name='description' type='text' placeholder='Enter the description')
             button.btn.btn-outline-primary(type='submit') Submit
