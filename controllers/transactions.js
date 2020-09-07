@@ -11,13 +11,15 @@ exports.create = function(req, res) {
     var date = req.body.date;
     var amount = req.body.amount;
     var description = req.body.description;
+    var type = req.body.description;
 
     var newTransaction = new Transaction({
       //account: account,
       category: category,
       date: date,
       amount: amount,
-      description: description
+      description: description,
+      type: type
     });
 
     newTransaction.save(function(err) {
