@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const transactionSchema = new Schema({
-    /*account: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Account'
-    },*/
+    account: {
+      type: String,
+      required: [true, 'Account is required.'],    
+    },
     category: {
       type: String,
       required: [true, 'Category is required.'],
@@ -22,7 +22,8 @@ const transactionSchema = new Schema({
       type: String
      },
     type: {
-      type: String
+      type: String,
+      required: [true, 'Transaction type is required.']
    }
 });
 
