@@ -10,15 +10,15 @@ exports.incomeInputForm = function(req, res) {
 };
 
 exports.create = function(req, res) {
-    //var account = req.body.account;
+    var account = req.body.account;
     var category = req.body.category;
     var date = req.body.date;
     var amount = req.body.amount;
     var description = req.body.description;
-    var type = req.body.description;
+    var type = req.body.type;
 
     var newTransaction = new Transaction({
-      //account: account,
+      account: account,
       category: category,
       date: date,
       amount: amount,
@@ -28,9 +28,10 @@ exports.create = function(req, res) {
 
     newTransaction.save(function(err) {
       if (err) {
-          res.render('/', { transaction: newTransaction, errors: err.errors });
+          res.redirect('/transactions');
+          console.log(err);
       } else {
-          res.redirect('transactions');
+          res.redirect('/transactions');
           console.log('Transaction saved successfully!');
       }
 
