@@ -1,8 +1,12 @@
 var express = require('express');
 var Transaction = require('../models/transaction');
 
-exports.transactionsInputForm = function(req, res) {
+exports.expensesInputForm = function(req, res) {
     res.render('transactions/expenses', { transaction: {}, errors: [] });
+};
+
+exports.incomeInputForm = function(req, res) {
+  res.render('transactions/income', { transaction: {}, errors: [] });
 };
 
 exports.create = function(req, res) {
