@@ -30,8 +30,11 @@ exports.create = function(req, res) {
       if (err) {
           res.redirect('/transactions');
           console.log(err);
+      } else if (type === 'Income') {
+          res.redirect('/transactions/income');
+          console.log('Transaction saved successfully!');          
       } else {
-          res.redirect('/transactions');
+          res.redirect('/transactions/expenses');
           console.log('Transaction saved successfully!');
       }
 
