@@ -4,7 +4,7 @@ var Account = require('../models/account');
 
 exports.expensesInputForm = function(req, res, next) {
 
-  Account.find({},'description')
+  Account.find({},'accountName')
   .exec(function (err, accounts) {
    if (err) { return next(err); }
    res.render('transactions/expenses', {title: 'Lolly | Transactions | Expenses', accountList: accounts } );
@@ -13,7 +13,7 @@ exports.expensesInputForm = function(req, res, next) {
 
 exports.incomeInputForm = function(req, res, next) {
 
-  Account.find({},'description')
+  Account.find({},'accountName')
   .exec(function (err, accounts) {
    if (err) { return next(err); }
    res.render('transactions/income', {title: 'Lolly | Transactions | Income', accountList: accounts } );
