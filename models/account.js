@@ -22,6 +22,10 @@ const accountSchema = new Schema({
    }
 });
 
+accountSchema.virtual('accountName').get(function() {
+    return this.type + ": " + this.description;
+  });
+
 function getBalance(num){
     return (num/100).toFixed(2);
 }
