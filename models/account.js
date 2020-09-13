@@ -16,17 +16,17 @@ const accountSchema = new Schema({
    },
    balance: {
        type: Number,
-       get: getPrice,
-       set: setPrice,
+       get: getBalance,
+       set: setBalance,
        required: [true, 'Balance is required.']
    }
 });
 
-function getPrice(num){
+function getBalance(num){
     return (num/100).toFixed(2);
 }
 
-function setPrice(num){
+function setBalance(num){
     return num*100;
 }
 

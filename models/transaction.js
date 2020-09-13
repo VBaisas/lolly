@@ -17,8 +17,10 @@ const transactionSchema = new Schema({
     },
     amount: {
       type: Number,
-      required: [true, 'Transaction amount is required.']
-    },
+      get: getAmount,
+      set: setAmount,
+      required: [true, 'Amount is required.']
+  },
     description: {
       type: String
      },
@@ -27,6 +29,15 @@ const transactionSchema = new Schema({
       required: [true, 'Transaction type is required.']
    }
 });
+
+function getAmount(num){
+  return (num/100).toFixed(2)
+};
+
+function setAmount(num){
+  return num*100
+};
+
 
 const Transaction = mongoose.model('Transaction', transactionSchema);
 
