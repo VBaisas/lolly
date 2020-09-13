@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+var Account = require('../models/account');
 
 const transactionSchema = new Schema({
     account: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: Account,
       required: [true, 'Account is required.'],    
     },
     category: {
