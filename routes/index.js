@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   Account.find(function (err, accounts) {
       if (err) console.log(err)
 
-      res.render('index', { accounts: accounts, title: 'Lolly' });
+      res.render('index', { accounts: accounts, title: 'Lolly | Overview' });
   });
 });
 
