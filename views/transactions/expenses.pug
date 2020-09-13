@@ -21,7 +21,7 @@ block content
                 select#account.form-control(type='select', placeholder='Select account' name='account' required='true' )
                   - accountList.sort(function(a, b) {let textA = a.description.toUpperCase(); let textB = b.description.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
                   for account in accountList
-                    option(value=account._id, selected=(selected_account==account._id.toString() ? 'selected' : false) ) #{account.description}
+                    option(value=account._id, selected=(selected_account==account._id.toString() ? 'selected' : false) ) #{account.accountName}
             .form-group.col-md-4
                 label(for='date') Date
                 input.form-control#date(name='date' type='date')
