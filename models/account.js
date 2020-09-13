@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const accountSchema = new Schema({
+   _id: {
+        type: Schema.Types.ObjectId,
+        required: true
+    },
    type: {
        type: String,
        required: [true, 'Account type is required.'],
