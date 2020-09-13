@@ -12,9 +12,19 @@ const accountSchema = new Schema({
    },
    balance: {
        type: Number,
+       get: getPrice,
+       set: setPrice,
        required: [true, 'Balance is required.']
    }
 });
+
+function getPrice(num){
+    return (num/100).toFixed(2);
+}
+
+function setPrice(num){
+    return num*100;
+}
 
 const Account = mongoose.model('Accounts', accountSchema);
 
