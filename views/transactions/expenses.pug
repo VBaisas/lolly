@@ -10,7 +10,7 @@ block content
     
       .card.col-md-9.mb-5.card-body
         h5.card-title.mb-3 Add New Expense Transaction
-        form(method="POST")
+        form(method="POST" action="")
           .form-row
             .form-group.col-md-4
                 label(for='type') Type
@@ -18,7 +18,10 @@ block content
                   option Expense
             .form-group.col-md-4
                 label(for='account') Account
-                input.form-control#account(name='account' type='text' placeholder='Enter the account') 
+                select#account.form-control(type='select', placeholder='Select account' name='account' required='true' )
+                  - accountList.sort(function(a, b) {let textA = a.description.toUpperCase(); let textB = b.description.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+                  for account in accountList
+                    option(value=account._id, selected=(selected_account==account._id.toString() ? 'selected' : false) ) #{account.description}
             .form-group.col-md-4
                 label(for='date') Date
                 input.form-control#date(name='date' type='date')

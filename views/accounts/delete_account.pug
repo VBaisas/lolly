@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1 #{title}: #{account.name}
+  
+  if transactions.length
+  
+    p #[strong Delete the following transactions before attempting to delete this account.]
+  
+    div(style='margin-left:20px;margin-top:20px')
+
+      h4 Transactions
+    
+      dl
+      each transaction in transactions
+        dt 
+          a(href=transaction.url) #{transaction.title}
+        dd #{transaction.summary}
+
+  else
+    p Do you really want to delete this Account?
+    
+    form(method='POST' action='')
+      div.form-group
+        input#atransactionid.form-control(type='hidden',name='transactuibid', required='true', value=transaction._id )
+
+      button.btn.btn-primary(type='submit') Delete
