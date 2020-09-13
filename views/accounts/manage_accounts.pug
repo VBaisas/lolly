@@ -25,3 +25,84 @@ block content
               .input-group-text $
             input#balance.form-control(name='balance' type='text' placeholder='Enter balance')
       button.btn.btn-outline-primary(type='submit') Submit
+
+  .card.mb-4.card-body
+    h5.card-title.mb-4 All Accounts
+    
+    table.table
+      thead.thead-light
+        tr
+          th(colspan='3') Checking Accounts
+      tbody
+        each account in accounts
+          if account.type === 'Checking Account'
+            tr
+              td.col-md-9.align-middle= account.description
+              td.col-md-2.align-middle= account.balance
+              td.col-md-1
+                button.btn.btn-outline-primary(href="/manage_accounts") Delete
+
+    table.table
+      thead.thead-light
+        tr
+          th(colspan='3') Savings Accounts
+      tbody
+        each account in accounts
+          if account.type === 'Savings Account'
+            tr
+              td.col-md-9.align-middle= account.description
+              td.col-md-2.align-middle= account.balance
+              td.col-md-1
+                button.btn.btn-outline-primary(href="/manage_accounts") Delete
+
+    table.table
+      thead.thead-light
+        tr
+          th(colspan='3') Cash
+      tbody
+        each account in accounts
+          if account.type === 'Cash'
+            tr
+              td.col-md-9.align-middle= account.description
+              td.col-md-2.align-middle= account.balance
+              td.col-md-1
+                button.btn.btn-outline-primary(href="/manage_accounts") Delete
+
+    table.table
+      thead.thead-light
+        tr
+          th(colspan='3') Credit Cards
+      tbody
+        each account in accounts
+          if account.type === 'Credit Card'
+            tr
+              td.col-md-9.align-middle= account.description
+              td.col-md-2.align-middle= account.balance
+              td.col-md-1
+                button.btn.btn-outline-primary(href="/manage_accounts") Delete
+
+    table.table
+      thead.thead-light
+        tr
+          th(colspan='3') Loans
+      tbody
+        each account in accounts
+          if account.type === 'Loan'
+            tr
+              td.col-md-9.align-middle= account.description
+              td.col-md-2.align-middle= account.balance
+              td.col-md-1
+                button.btn.btn-outline-primary(href="/manage_accounts") Delete
+
+    table.table
+      thead.thead-light
+        tr
+          th(colspan='3') Investment Accounts
+      tbody
+        each account in accounts
+          if account.type === 'Investment Account'
+            tr
+              td.col-md-9.align-middle= account.description
+              td.col-md-2.align-middle= account.balance
+              td.col-md-1
+                button.btn.btn-outline-primary(href="/manage_accounts") Delete
