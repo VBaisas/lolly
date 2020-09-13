@@ -28,7 +28,10 @@ block content
           .form-row
             .form-group.col-md-4
                 label(for='amount') Amount
-                input.form-control#amount(name='amount' type='number' placeholder='Enter the amount') 
+                .input-group.mb-2
+                  .input-group-prepend
+                    .input-group-text $
+                  input#inlineFormInputGroup.form-control(type='text' placeholder='Enter amount')
             .form-group.col-md-4
                 label(for='category') Category
                 select.form-control#category(name='category')
@@ -49,5 +52,5 @@ block content
                   option Miscellaneous                      
             .form-group.col-md-4
                 label(for='description') Description
-                input.form-control#description(name='description' type='text' placeholder='Enter the description')
+                input.form-control#description(name='description' type='text' placeholder='Enter description')
             button.btn.btn-outline-primary(type='submit') Submit

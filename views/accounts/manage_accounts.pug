@@ -20,7 +20,10 @@ block content
           input.form-control#description(name='description' type='text' placeholder='Enter brief account description')
         .form-group.col-md-4
           label(for='balance') Balance
-          input.form-control#balance(name='balance' type='text' placeholder='$')
+          .input-group.mb-2
+            .input-group-prepend
+              .input-group-text $
+            input#inlineFormInputGroup.form-control(type='text' placeholder='Enter balance')
       button.btn.btn-outline-primary(type='submit') Submit
 
   .card.mb-4.card-body
