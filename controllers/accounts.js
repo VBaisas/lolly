@@ -25,7 +25,6 @@ exports.create = function(req, res) {
   newAccount.save(function(err) {
     if (err) {
         res.render('accounts/manage_accounts', { account: newAccount, errors: err.errors });
-        console.log(err)
     } else {
         res.redirect('/');
         console.log('Account saved successfully!');
@@ -33,4 +32,3 @@ exports.create = function(req, res) {
 
   });
 };
-
