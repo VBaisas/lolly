@@ -3,7 +3,7 @@ var accountController = require('../controllers/accounts');
 var router = express.Router();
 
 router 
-  .route('/manage_accounts')
+  .route('/')
   .get(accountController.accountsInputForm)
   .post(accountController.create)
 

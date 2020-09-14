@@ -3,17 +3,17 @@ var transactionController = require('../controllers/transactions.js');
 var router = express.Router();
 
 router 
-  .route('/transactions')
+  .route('/')
   .get(transactionController.expensesInputForm)
   .post(transactionController.create)
 
 router 
-  .route('/transactions/expenses')
+  .route('/expenses')
   .get(transactionController.expensesInputForm)
   .post(transactionController.create)
 
   router 
-  .route('/transactions/income')
+  .route('/income')
   .get(transactionController.incomeInputForm)
   .post(transactionController.create)
 
