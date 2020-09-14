@@ -26,6 +26,10 @@ accountSchema.virtual('accountName').get(function() {
     return this.type + ": " + this.description;
   });
 
+accountSchema.virtual('url').get(function() {
+    return '/accounts/' + this._id;
+  });
+
 function getBalance(num){
     return (num/100).toFixed(2);
 }
