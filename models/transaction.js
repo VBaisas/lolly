@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+var moment = require('moment');
 const Schema = mongoose.Schema;
 
 const transactionSchema = new Schema({
@@ -30,6 +31,10 @@ const transactionSchema = new Schema({
    }
 });
 
+transactionSchema.virtual('date_mm_dd_yyyy').get(function() {
+  return moment(this.date).format('MM-DD-YYYY');
+});
+
 function getAmount(num){
   return (num/100).toFixed(2)
 };
@@ -37,7 +42,6 @@ function getAmount(num){
 function setAmount(num){
   return num*100
 };
-
 
 const Transaction = mongoose.model('Transaction', transactionSchema);
 
