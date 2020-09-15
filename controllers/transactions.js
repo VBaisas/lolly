@@ -1,13 +1,22 @@
 var express = require('express');
+var async = require('async');
 var Transaction = require('../models/transaction');
 var Account = require('../models/account');
 
 exports.expensesInputForm = function(req, res, next) {
 
-  Account.find(function (err, accounts) {
-    if (err) console.log(err)
-   res.render('transactions/expenses', {title: 'Lolly | Transactions | Expenses', accountList: accounts, errors: [] } );
- });
+  async.parallel({
+      accounts: function(callback) {
+          Account.find(callback);
+      },
+      transactions: function(callback) {
+          Transaction.find(callback);
+      },
+  }, function(err, results) {
+      if (err) { return next(err); }
+      res.render('transactions/expenses', { title: 'Lolly | Transactions | Expenses', accounts: results.accounts, transactions: results.transactions });
+  });
+
 };
 
 exports.incomeInputForm = function(req, res, next) {
