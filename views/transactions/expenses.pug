@@ -70,10 +70,9 @@ block content
               th Description
           tbody
             each transaction in transactions
-              if transaction.type === 'Expense'
-                tr
-                  td= transaction.account.accountName
-                  td= transaction.date_mm_dd_yyyy
-                  td= transaction.amount
-                  td= transaction.category
-                  td= transaction.description
+              tr
+                td= transaction.account.accountName
+                td= transaction.date_mm_dd_yyyy
+                td= transaction.amount
+                td= transaction.category
+                td= transaction.description

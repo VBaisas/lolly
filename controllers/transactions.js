@@ -10,7 +10,7 @@ exports.expensesInputAndList = function(req, res, next) {
           Account.find(callback);
       },
       transactions: function(callback) {
-        Transaction.find().populate('account').exec(callback);
+        Transaction.find({ type: 'Expense' }).populate('account').exec(callback);
 
       },
   }, function(err, results) {
@@ -20,13 +20,13 @@ exports.expensesInputAndList = function(req, res, next) {
 
 };
 
-exports.incomeInputForm = function(req, res, next) {
+/*exports.incomeInputForm = function(req, res, next) {
 
   Account.find(function (err, accounts) {
     if (err) console.log(err)
    res.render('transactions/income', {title: 'Lolly | Transactions | Income', accountList: accounts, errors: [] } );
  });
-};
+};*/
 
 exports.create = function(req, res) {
   var account = req.body.account;
