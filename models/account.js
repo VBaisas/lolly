@@ -34,6 +34,6 @@ function setBalance(num){
     return num*100;
 }
 
-const Account = mongoose.model('Accounts', accountSchema);
+const Account = mongoose.model('Account', accountSchema);
 
 module.exports = Account;
