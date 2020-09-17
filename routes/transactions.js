@@ -12,4 +12,9 @@ router
   .get(transactionController.expensesInputAndList)
   .post(transactionController.create)
 
+  router 
+  .route('/income')
+  .get(transactionController.incomeInputAndList)
+  .post(transactionController.create)
+
 module.exports = router;

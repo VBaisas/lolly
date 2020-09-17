@@ -20,6 +20,23 @@ exports.expensesInputAndList = function(req, res, next) {
 
 };
 
+exports.incomeInputAndList = function(req, res, next) {
+
+  async.parallel({
+      accounts: function(callback) {
+          Account.find(callback);
+      },
+      transactions: function(callback) {
+        Transaction.find({ type: 'Income' }).populate('account').exec(callback);
+
+      },
+  }, function(err, results) {
+      if (err) { return next(err); }
+      res.render('transactions/income', { title: 'Lolly | Transactions | Income', accounts: results.accounts, transactions: results.transactions});
+  });
+
+};
+
 /*exports.incomeInputForm = function(req, res, next) {
 
   Account.find(function (err, accounts) {

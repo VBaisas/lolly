@@ -8,7 +8,7 @@ block content
         a.list-group-item.list-group-item-action.active(href='/transactions/income', style="background-color: #57b5b2") Income
         a.list-group-item.list-group-item-action(href='#') Transfers
     
-      .card.col-md-9.mb-5.card-body
+      .card.col-md-9.mb-4.card-body
         h5.card-title.mb-3 Add New Income Transaction
         form(method="POST")
           .form-row
@@ -19,8 +19,8 @@ block content
             .form-group.col-md-4
                 label(for='account') Account
                 select#account.form-control(type='select', placeholder='Select account' name='account' required='true' )
-                  - accountList.sort(function(a, b) {let textA = a.description.toUpperCase(); let textB = b.description.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
-                  for account in accountList
+                  - accounts.sort(function(a, b) {let textA = a.description.toUpperCase(); let textB = b.description.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+                  for account in accounts
                     option(value=account._id, selected=(selected_account==account._id.toString() ? 'selected' : false) ) #{account.accountName}
             .form-group.col-md-4
                 label(for='date') Date
@@ -49,3 +49,27 @@ block content
                 label(for='description') Description
                 input.form-control#description(name='description' type='text' placeholder='Enter description')
           button.btn.btn-outline-primary(type='submit') Submit
+          
+
+
+    .row.ml-0
+      .div.col-md-3
+      .card.col-md-9.mb-4.card-body
+        h5.card-title.mb-4 All Transactions
+        
+        table.table.table-responsive-md
+          thead.thead-light
+            tr
+              th Account
+              th Date
+              th Amount
+              th Category
+              th Description
+          tbody
+            each transaction in transactions
+              tr
+                td= transaction.account.accountName
+                td= transaction.date_mm_dd_yyyy
+                td= transaction.amount
+                td= transaction.category
+                td= transaction.description
