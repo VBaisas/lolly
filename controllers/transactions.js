@@ -3,18 +3,19 @@ var async = require('async');
 var Transaction = require('../models/transaction');
 var Account = require('../models/account');
 
-exports.expensesInputForm = function(req, res, next) {
+exports.expensesInputAndList = function(req, res, next) {
 
   async.parallel({
       accounts: function(callback) {
           Account.find(callback);
       },
       transactions: function(callback) {
-          Transaction.find(callback);
+        Transaction.find().populate('account').exec(callback);
+
       },
   }, function(err, results) {
       if (err) { return next(err); }
-      res.render('transactions/expenses', { title: 'Lolly | Transactions | Expenses', accounts: results.accounts, transactions: results.transactions });
+      res.render('transactions/expenses', { title: 'Lolly | Transactions | Expenses', accounts: results.accounts, transactions: results.transactions});
   });
 
 };

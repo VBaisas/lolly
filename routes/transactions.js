@@ -4,17 +4,22 @@ var router = express.Router();
 
 router 
   .route('/')
-  .get(transactionController.expensesInputForm)
+  .get(transactionController.expensesInputAndList)
   .post(transactionController.create)
 
 router 
   .route('/expenses')
-  .get(transactionController.expensesInputForm)
+  .get(transactionController.expensesInputAndList)
   .post(transactionController.create)
 
-  router 
+router 
   .route('/income')
   .get(transactionController.incomeInputForm)
+  .post(transactionController.create)
+
+router 
+  .route('/expenses/:id/delete')
+  .get(transactionController.expensesInputAndList)
   .post(transactionController.create)
 
 module.exports = router;
