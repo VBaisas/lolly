@@ -27,7 +27,7 @@ exports.create = function(req, res) {
     if (err) {
         res.render('accounts/manage_accounts', { account: newAccount, errors: err.errors });
     } else {
-        res.redirect('/');
+        res.redirect('/accounts');
         console.log('Account saved successfully!');
     }
 
@@ -38,10 +38,8 @@ exports.create = function(req, res) {
 exports.accountDeleteDetails = function(req, res, next) {
 
   Account.findById(req.params.id, function (err, account) {
-      if (err) { return next(err); }
-      if (account==null) {
-          res.redirect('/accounts');
-      }
+      if (err) 
+        res.redirect('/accounts');
       res.render('accounts/delete_account', { title: 'Delete Account', account:  account});
   })
 
