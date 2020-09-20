@@ -37,14 +37,6 @@ exports.incomeInputAndList = function(req, res, next) {
 
 };
 
-/*exports.incomeInputForm = function(req, res, next) {
-
-  Account.find(function (err, accounts) {
-    if (err) console.log(err)
-   res.render('transactions/income', {title: 'Lolly | Transactions | Income', accountList: accounts, errors: [] } );
- });
-};*/
-
 exports.create = function(req, res) {
   var account = req.body.account;
   var category = req.body.category;
