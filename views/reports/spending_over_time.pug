@@ -1,0 +1,64 @@
+extends ../layout
+
+block content
+    h1.mb-4 Reports
+    .row.ml-0
+      .list-group.col-md-3.mb-5
+        a.list-group-item.list-group-item-action.active(href='/reports/spending_over_time', style="background-color: #57b5b2") Spending
+        a.list-group-item.list-group-item-action(href='#') Income
+
+      .card.col-md-9.mb-4.card-body
+                script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js")
+                .chart-container
+                canvas#myChart       
+                script.
+                  var ctx = document.getElementById("myChart").getContext('2d');
+                  var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                    datasets: [{
+                    label: 'Spending over time',
+                    data: [0, 0, 2500.00, 2763.90, 2333.99, 1789.56, 1890.78, 1877.83, 1567.98, 2789.45, 2136.78, 2451.72],
+                    backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(51, 204, 51,0.2)',
+                    'rgb(191, 191, 63,0.2)',
+                    'rgb(63, 127, 191 ,0.2)',
+                    'rgb(63, 191, 191,0.2)',
+                    'rgb(191, 63, 127,0.2)',
+                    'rgb(46, 91, 68,0.2)'
+
+                    ],
+                    borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(51, 204, 51,1)',
+                    'rgb(191, 191, 63,1)',
+                    'rgb(63, 127, 191,1)',
+                    'rgb(63, 191, 191,1)',
+                    'rgb(191, 63, 127,1)',
+                    'rgb(46, 91, 68,1)'
+                    ],
+                    borderWidth: 1
+                    }]
+                    },
+                    options: {
+                    scales: {
+                    yAxes: [{
+                    ticks: {
+                    beginAtZero:true
+                    }
+                    }]
+                    }
+                    }
+                    });  
