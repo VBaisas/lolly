@@ -49,7 +49,7 @@ exports.accountDeleteDetails = function(req, res, next) {
 
 exports.accountDelete = function(req, res, next) {
     
-  Account.findByIdAndRemove(req.body.id, function deleteAccount(err) {
+  Account.findByIdAndDelete(req.body.id, function deleteAccount(err) {
       if (err) { return next(err); }
       res.redirect('/');
       });
