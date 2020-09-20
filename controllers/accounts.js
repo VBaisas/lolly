@@ -51,7 +51,7 @@ exports.accountDelete = function(req, res, next) {
     
   Account.findByIdAndDelete(req.body.id, function deleteAccount(err) {
       if (err) { return next(err); }
-      res.redirect('/');
+      res.redirect('/accounts');
       });
 
 };
