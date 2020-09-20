@@ -3,6 +3,7 @@ var Account = require('../models/account');
 const mongoose = require('mongoose');
 
 exports.accountsInputForm = function(req, res) {
+
   Account.find(function (err, accounts) {
     if (err) console.log(err)
     res.render('accounts/manage_accounts', { accounts: accounts, title: 'Lolly | Accounts', errors: [] });
@@ -31,4 +32,26 @@ exports.create = function(req, res) {
     }
 
   });
+  
+};
+
+exports.accountDeleteDetails = function(req, res, next) {
+
+  Account.findById(req.params.id, function (err, account) {
+      if (err) { return next(err); }
+      if (account==null) {
+          res.redirect('/accounts');
+      }
+      res.render('accounts/delete_account', { title: 'Delete Account', account:  account});
+  })
+
+};
+
+exports.accountDelete = function(req, res, next) {
+    
+  Account.findByIdAndRemove(req.body.id, function deleteAccount(err) {
+      if (err) { return next(err); }
+      res.redirect('/');
+      });
+
 };
