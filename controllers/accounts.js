@@ -2,6 +2,14 @@ var express = require('express');
 var Account = require('../models/account');
 const mongoose = require('mongoose');
 
+exports.indexPage = function(req, res) {
+
+  Account.find(function (err, accounts) {
+    if (err) console.log(err)
+    res.render('index', { accounts: accounts, title: 'Lolly | Overview' });
+  });
+  };
+
 exports.accountsInputForm = function(req, res) {
 
   Account.find(function (err, accounts) {
