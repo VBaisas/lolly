@@ -19,7 +19,6 @@ const transactionSchema = new Schema({
     amount: {
       type: Number,
       get: getAmount,
-      set: setAmount,
       required: [true, 'Amount is required.']
   },
     description: {
@@ -36,11 +35,7 @@ transactionSchema.virtual('date_mm_dd_yyyy').get(function() {
 });
 
 function getAmount(num){
-  return (num/100).toFixed(2)
-};
-
-function setAmount(num){
-  return num*100
+  return num.toFixed(2)
 };
 
 const Transaction = mongoose.model('Transaction', transactionSchema);

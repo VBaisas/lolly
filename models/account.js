@@ -13,7 +13,6 @@ const accountSchema = new Schema({
    balance: {
        type: Number,
        get: getBalance,
-       set: setBalance,
        required: [true, 'Balance is required.']
    }
 });
@@ -27,11 +26,7 @@ accountSchema.virtual('url').get(function() {
   });
 
 function getBalance(num){
-    return (num/100).toFixed(2);
-}
-
-function setBalance(num){
-    return num*100;
+    return num.toFixed(2);
 }
 
 const Account = mongoose.model('Account', accountSchema);
