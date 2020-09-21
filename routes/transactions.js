@@ -5,16 +5,16 @@ var router = express.Router();
 router 
   .route('/')
   .get(transactionController.expensesInputAndList)
-  .post(transactionController.create)
+  .post(transactionController.createExpense)
 
 router 
   .route('/expenses')
   .get(transactionController.expensesInputAndList)
-  .post(transactionController.create)
+  .post(transactionController.createExpense)
 
   router 
   .route('/income')
   .get(transactionController.incomeInputAndList)
-  .post(transactionController.create)
+  .post(transactionController.createIncome)
 
 module.exports = router;

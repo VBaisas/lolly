@@ -73,6 +73,6 @@ block content
               tr
                 td= transaction.account.accountName
                 td= transaction.date_mm_dd_yyyy
-                td= transaction.amount
+                td= (transaction.amount * -1).toFixed(2)
                 td= transaction.category
                 td= transaction.description

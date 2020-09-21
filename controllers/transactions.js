@@ -37,7 +37,39 @@ exports.incomeInputAndList = function(req, res, next) {
 
 };
 
-exports.create = function(req, res) {
+exports.createExpense = function(req, res) {
+  var account = req.body.account;
+  var category = req.body.category;
+  var date = req.body.date;
+  var amount = req.body.amount * -1;
+  var description = req.body.description;
+  var type = req.body.type;
+
+  var newTransaction = new Transaction({
+    account: account,
+    category: category,
+    date: date,
+    amount: amount,
+    description: description,
+    type: type
+  });
+
+  newTransaction.save(function(err) {
+    if (err) {
+        res.redirect('/transactions');
+        console.log(err);
+    } else if (type === 'Income') {
+        res.redirect('/transactions/income');
+        console.log('Transaction saved successfully!');          
+    } else {
+        res.redirect('/transactions/expenses');
+        console.log('Transaction saved successfully!');
+    }
+
+  });
+};
+
+exports.createIncome = function(req, res) {
   var account = req.body.account;
   var category = req.body.category;
   var date = req.body.date;
