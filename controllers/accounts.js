@@ -38,11 +38,35 @@ exports.indexPage = function(req, res) {
 
 exports.accountsInputForm = function(req, res) {
 
-  Account.find(function (err, accounts) {
+  Account.aggregate([
+    {
+      $lookup: {
+         from: "transactions",
+         localField: "_id",
+         foreignField: "account",
+         as: "fromTransactions"
+      }
+    },
+    { $unwind: { path: "$fromTransactions", preserveNullAndEmptyArrays: true } },
+    {
+      $group:
+        {
+          _id: "$_id",
+          balance : { $first: '$balance' },
+          description : { $first: '$description' },
+          type : { $first: '$type' },
+          transactionsSum : { $sum : '$fromTransactions.amount' }
+        }
+    },
+    {
+      $addFields: { 
+        currentBalance: { $sum: ['$balance', '$transactionsSum'] }}}
+  ], (function (err, accountsAggregate) {
     if (err) console.log(err)
-    res.render('accounts/manage_accounts', { accounts: accounts, title: 'Lolly | Accounts', errors: [] });
-  })
-};
+    res.render('accounts/manage_accounts', { accountsAggregate: accountsAggregate, title: 'Lolly | Accounts', errors: [] });
+  }));
+    
+}; 
 
 exports.create = function(req, res) {
   var _id = new mongoose.Types.ObjectId();
