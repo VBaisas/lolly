@@ -2,75 +2,79 @@ extends layout
 
 block content
   h1.mb-4 Overview
-  .card.col-md-4.mb-5.card-body
-    h5.card-title.mb-4 Accounts
-    
-    table.table
-      thead.thead-light
-        tr
-          th(colspan='2') Checking Accounts
-      tbody
-        each accountAggregate in accountsAggregate
-          if accountAggregate.type === 'Checking Account'
-            tr
-              td.col-md-9= accountAggregate.description
-              td= accountAggregate.currentBalance.toFixed(2)
+  .row.ml-0
+    .card.col-md-4.mb-5.card-body
+      h5.card-title.mb-4 Accounts
+      
+      table.table
+        thead.thead-light
+          tr
+            th(colspan='2') Checking Accounts
+        tbody
+          each accountAggregate in accountsAggregate
+            if accountAggregate.type === 'Checking Account'
+              tr
+                td.col-md-9= accountAggregate.description
+                td= accountAggregate.currentBalance.toFixed(2)
 
-    table.table
-      thead.thead-light
-        tr
-          th(colspan='2') Savings Accounts
-      tbody
-        each accountAggregate in accountsAggregate
-          if accountAggregate.type === 'Savings Account'
-            tr
-              td.col-md-9= accountAggregate.description
-              td= accountAggregate.currentBalance.toFixed(2)
+      table.table
+        thead.thead-light
+          tr
+            th(colspan='2') Savings Accounts
+        tbody
+          each accountAggregate in accountsAggregate
+            if accountAggregate.type === 'Savings Account'
+              tr
+                td.col-md-9= accountAggregate.description
+                td= accountAggregate.currentBalance.toFixed(2)
 
-    table.table
-      thead.thead-light
-        tr
-          th(colspan='2') Cash
-      tbody
-        each accountAggregate in accountsAggregate
-          if accountAggregate.type === 'Cash'
-            tr
-              td.col-md-9= accountAggregate.description
-              td= accountAggregate.currentBalance.toFixed(2)
+      table.table
+        thead.thead-light
+          tr
+            th(colspan='2') Cash
+        tbody
+          each accountAggregate in accountsAggregate
+            if accountAggregate.type === 'Cash'
+              tr
+                td.col-md-9= accountAggregate.description
+                td= accountAggregate.currentBalance.toFixed(2)
 
-    table.table
-      thead.thead-light
-        tr
-          th(colspan='2') Credit Cards
-      tbody
-        each accountAggregate in accountsAggregate
-          if accountAggregate.type === 'Credit Card'
-            tr
-              td.col-md-9= accountAggregate.description
-              td= accountAggregate.currentBalance.toFixed(2)
+      table.table
+        thead.thead-light
+          tr
+            th(colspan='2') Credit Cards
+        tbody
+          each accountAggregate in accountsAggregate
+            if accountAggregate.type === 'Credit Card'
+              tr
+                td.col-md-9= accountAggregate.description
+                td= accountAggregate.currentBalance.toFixed(2)
 
-    table.table
-      thead.thead-light
-        tr
-          th(colspan='2') Loans
-      tbody
-        each accountAggregate in accountsAggregate
-          if accountAggregate.type === 'Loan'
-            tr
-              td.col-md-9= accountAggregate.description
-              td= accountAggregate.currentBalance.toFixed(2)
+      table.table
+        thead.thead-light
+          tr
+            th(colspan='2') Loans
+        tbody
+          each accountAggregate in accountsAggregate
+            if accountAggregate.type === 'Loan'
+              tr
+                td.col-md-9= accountAggregate.description
+                td= accountAggregate.currentBalance.toFixed(2)
 
-    table.table
-      thead.thead-light
-        tr
-          th(colspan='2') Investment Accounts
-      tbody
-        each accountAggregate in accountsAggregate
-          if accountAggregate.type === 'Investment Account'
-            tr
-              td.col-md-9= accountAggregate.description
-              td= accountAggregate.currentBalance.toFixed(2)
+      table.table
+        thead.thead-light
+          tr
+            th(colspan='2') Investment Accounts
+        tbody
+          each accountAggregate in accountsAggregate
+            if accountAggregate.type === 'Investment Account'
+              tr
+                td.col-md-9= accountAggregate.description
+                td= accountAggregate.currentBalance.toFixed(2)
 
-    a.btn.btn-outline-primary.mb-3(href="/accounts") Manage accounts
+      a.btn.btn-outline-primary.mb-3(href="/accounts") Manage accounts
+
+    .col-md-8.mb-5.text-center
+      img.rounded.img-fluid(src='images/Lolly_homepage.jpg' alt='Homepage image')
 
         
