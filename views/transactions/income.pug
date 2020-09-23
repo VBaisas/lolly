@@ -18,7 +18,7 @@ block content
             .form-group.col-md-4
                 label(for='account') Account
                 select#account.form-control(type='select', placeholder='Select account' name='account' required='true' )
-                  - accounts.sort(function(a, b) {let textA = a.description.toUpperCase(); let textB = b.description.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+                  - accounts.sort(function(a, b) {let textA = a.type.toUpperCase(); let textB = b.type.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
                   for account in accounts
                     option(value=account._id, selected=(selected_account==account._id.toString() ? 'selected' : false) ) #{account.accountName}
             .form-group.col-md-4
