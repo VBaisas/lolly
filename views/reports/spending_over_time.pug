@@ -5,7 +5,7 @@ block content
     .row.ml-0
       .list-group.col-md-3.mb-5
         a.list-group-item.list-group-item-action.active(href='/reports/spending_over_time', style="background-color: #57b5b2") Spending
-        a.list-group-item.list-group-item-action(href='#') Income
+        a.list-group-item.list-group-item-action(href='/reports/income_over_time') Income
 
       .card.col-md-9.mb-4.card-body
         - var y = '[' + transactionsAggregate[0].transactionAmount.toString() + ']' 
