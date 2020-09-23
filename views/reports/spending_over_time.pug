@@ -8,6 +8,7 @@ block content
         a.list-group-item.list-group-item-action(href='#') Income
 
       .card.col-md-9.mb-4.card-body
+        - var y = '[' + transactionsAggregate[0].transactionAmount.toString() + ']' 
                 script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js")
                 .chart-container
                 canvas#myChart       
@@ -16,10 +17,10 @@ block content
                   var myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                    labels: ['Date 1', 'Date 2', 'Date 3', 'Date 4', 'Date 5', 'Date 6', 'Date 7', 'Date 8', 'Date 9', 'Date 10', 'Date 11', 'Date 12'],
                     datasets: [{
                     label: 'Spending over time',
-                    data: [0, 0, 2500.00, 2763.90, 2333.99, 1789.56, 1890.78, 1877.83, 1567.98, 2789.45, 2136.78, 2451.72],
+                    data: #{y},
                     backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -61,4 +62,4 @@ block content
                     }]
                     }
                     }
-                    });  
+                    });
