@@ -3,14 +3,6 @@ var Account = require('../models/account');
 var Transaction = require('../models/transaction');
 const mongoose = require('mongoose');
 
-/*exports.indexPage = function(req, res) {
-
-  Account.find(function (err, accounts) {
-    if (err) console.log(err)
-    res.render('index', { accounts: accounts, title: 'Lolly | Overview' });
-  });
-  };*/
-
 exports.indexPage = function(req, res) {
   
   Account.aggregate([
@@ -43,8 +35,6 @@ exports.indexPage = function(req, res) {
     }));
     
 };  
-
-
 
 exports.accountsInputForm = function(req, res) {
 
