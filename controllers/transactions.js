@@ -10,7 +10,7 @@ exports.expensesInputAndList = function(req, res, next) {
           Account.find(callback);
       },
       transactions: function(callback) {
-        Transaction.find({ type: 'Expense' }).populate('account').exec(callback);
+        Transaction.find({ type: 'Expense' }).sort( {date: 1} ).populate('account').exec(callback);
 
       },
   }, function(err, results) {
@@ -27,7 +27,7 @@ exports.incomeInputAndList = function(req, res, next) {
           Account.find(callback);
       },
       transactions: function(callback) {
-        Transaction.find({ type: 'Income' }).populate('account').exec(callback);
+        Transaction.find({ type: 'Income' }).sort( {date: 1} ).populate('account').exec(callback);
 
       },
   }, function(err, results) {
