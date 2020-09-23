@@ -1,14 +1,50 @@
 var express = require('express');
 var Account = require('../models/account');
+var Transaction = require('../models/transaction');
 const mongoose = require('mongoose');
 
-exports.indexPage = function(req, res) {
+/*exports.indexPage = function(req, res) {
 
   Account.find(function (err, accounts) {
     if (err) console.log(err)
     res.render('index', { accounts: accounts, title: 'Lolly | Overview' });
   });
-  };
+  };*/
+
+exports.indexPage = function(req, res) {
+  
+  Account.aggregate([
+    {
+      $lookup: {
+         from: "transactions",
+         localField: "_id",
+         foreignField: "account",
+         as: "fromTransactions"
+      }
+    },
+    { $unwind: { path: "$fromTransactions", preserveNullAndEmptyArrays: true } },
+    {
+      $group:
+        {
+          _id: "$_id",
+          balance : { $first: '$balance' },
+          description : { $first: '$description' },
+          type : { $first: '$type' },
+          transactionsSum : { $sum : '$fromTransactions.amount' }
+        }
+    },
+    {
+      $addFields: { 
+        currentBalance: { $sum: ['$balance', '$transactionsSum'] }}}
+  ], (function (err, accountsAggregate) {
+        if (err) console.log(err)
+        res.render('index', { accountsAggregate: accountsAggregate, title: 'Lolly | Overview' });
+        console.log(accountsAggregate);
+    }));
+    
+};  
+
+
 
 exports.accountsInputForm = function(req, res) {
 

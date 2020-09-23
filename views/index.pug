@@ -10,66 +10,66 @@ block content
         tr
           th(colspan='2') Checking Accounts
       tbody
-        each account in accounts
-          if account.type === 'Checking Account'
+        each accountAggregate in accountsAggregate
+          if accountAggregate.type === 'Checking Account'
             tr
-              td.col-md-9= account.description
-              td= account.balance
+              td.col-md-9= accountAggregate.description
+              td= accountAggregate.currentBalance.toFixed(2)
 
     table.table
       thead.thead-light
         tr
           th(colspan='2') Savings Accounts
       tbody
-        each account in accounts
-          if account.type === 'Savings Account'
+        each accountAggregate in accountsAggregate
+          if accountAggregate.type === 'Savings Account'
             tr
-              td.col-md-9= account.description
-              td= account.balance
+              td.col-md-9= accountAggregate.description
+              td= accountAggregate.currentBalance.toFixed(2)
 
     table.table
       thead.thead-light
         tr
           th(colspan='2') Cash
       tbody
-        each account in accounts
-          if account.type === 'Cash'
+        each accountAggregate in accountsAggregate
+          if accountAggregate.type === 'Cash'
             tr
-              td.col-md-9= account.description
-              td= account.balance
+              td.col-md-9= accountAggregate.description
+              td= accountAggregate.currentBalance.toFixed(2)
 
     table.table
       thead.thead-light
         tr
           th(colspan='2') Credit Cards
       tbody
-        each account in accounts
-          if account.type === 'Credit Card'
+        each accountAggregate in accountsAggregate
+          if accountAggregate.type === 'Credit Card'
             tr
-              td.col-md-9= account.description
-              td= account.balance
+              td.col-md-9= accountAggregate.description
+              td= accountAggregate.currentBalance.toFixed(2)
 
     table.table
       thead.thead-light
         tr
           th(colspan='2') Loans
       tbody
-        each account in accounts
-          if account.type === 'Loan'
+        each accountAggregate in accountsAggregate
+          if accountAggregate.type === 'Loan'
             tr
-              td.col-md-9= account.description
-              td= account.balance
+              td.col-md-9= accountAggregate.description
+              td= accountAggregate.currentBalance.toFixed(2)
 
     table.table
       thead.thead-light
         tr
           th(colspan='2') Investment Accounts
       tbody
-        each account in accounts
-          if account.type === 'Investment Account'
+        each accountAggregate in accountsAggregate
+          if accountAggregate.type === 'Investment Account'
             tr
-              td.col-md-9= account.description
-              td= account.balance
+              td.col-md-9= accountAggregate.description
+              td= accountAggregate.currentBalance.toFixed(2)
 
     a.btn.btn-outline-primary.mb-3(href="/accounts") Manage accounts
 
