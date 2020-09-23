@@ -16,3 +16,24 @@ exports.spendingOverTime = function(req, res) {
     }));
     
 };
+
+exports.incomeOverTime = function(req, res) {
+  
+  Transaction.aggregate([
+    { $match : { type : "Income" } },
+    { $group: {_id: '$date', 'transactionAmount': {$sum: '$amount'}}},
+    { $sort: { _id: 1 }},
+    { $project:
+    {
+      year: { $year: "$_id" },
+      month: { $month: "$_id" },
+      day: { $dayOfMonth: "$_id" },
+      transactionAmount: 1}
+    },
+  ], (function (err, transactionsAggregate) {
+        if (err) console.log(err)
+        res.render('reports/income_over_time', { transactionsAggregate: transactionsAggregate, title: 'Lolly | Reports' });
+        console.log(transactionsAggregate);
+    }));
+    
+};

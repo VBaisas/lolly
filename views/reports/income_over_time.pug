@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+    h1.mb-4 Reports
+    .row.ml-0
+      .list-group.col-md-3.mb-5
+        a.list-group-item.list-group-item-action(href='/reports/spending_over_time') Spending
+        a.list-group-item.list-group-item-action.active(href='/reports/income_over_time', style="background-color: #57b5b2") Income
+
+      .card.col-md-9.mb-4.card-body
+        h5.card-title.mb-4 Income by Period
+        table.table.table-responsive-md
+          thead.thead-light
+            tr
+              th Date
+              th Amount
+          tbody
+            each transactionAggregate in transactionsAggregate
+              tr
+                td= transactionAggregate.month + '-' + transactionAggregate.day + '-' + transactionAggregate.year
+                td= transactionAggregate.transactionAmount.toFixed(2)
